@@ -3,209 +3,180 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Crema de Cannavi Achilata – Instrucciones y Beneficios</title>
+  <title>Ungüento de Cannavi Achilata – Instrucciones</title>
+  <!--
+    NOTA: Esta plantilla intenta respetar el FORMATO, FUENTE y PALETA del PDF.
+    Como los colores y la tipografía exacta del PDF no se pueden detectar automáticamente aquí,
+    deja preparados los tokens (CSS variables) y el @font-face para que puedas colocar
+    los valores precisos si lo deseas (por ejemplo, si nos pasas el nombre/archivo de la fuente).
+  -->
   <style>
     :root {
-      --bg: #0f172a;
-      --panel: #111827;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #22d3ee;
-      --card: #0b1220;
+      /* === Ajusta estos valores para calcar la paleta exacta del PDF === */
+      --bg: #ffffff;               /* Fondo principal (probablemente blanco en el PDF) */
+      --text: #1f2937;             /* Texto base gris oscuro */
+      --muted: #4b5563;            /* Texto secundario */
+      --headline: #14532d;         /* Verde profundo para títulos (ajústalo al verde del PDF) */
+      --accent: #0ea5a5;           /* Acento suave (si el PDF tuviera acentos turquesa/verde) */
+      --rule: #d1d5db;             /* Separadores */
+      --card: #f8fafc;             /* Bloques resaltados */
+
+      --font-body: var(--font-pdf, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial);
+      --font-heading: var(--font-pdf, Georgia, Times, "Times New Roman", serif);
     }
+
+    /*
+      Si tenés el archivo de la fuente del PDF (por ejemplo, .ttf/.otf),
+      reemplazá url('fuente-del-pdf.woff2') y el nombre 'PDF-Font' abajo,
+      y se aplicará automáticamente a toda la página.
+    */
+    /*
+    @font-face {
+      font-family: 'PDF-Font';
+      src: url('fuente-del-pdf.woff2') format('woff2');
+      font-display: swap;
+    }
+    :root { --font-pdf: 'PDF-Font'; }
+    */
+
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
     body {
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: linear-gradient(180deg, var(--bg), #0b1020 50%, #080c18 100%);
+      background: var(--bg);
       color: var(--text);
+      font-family: var(--font-body);
       line-height: 1.6;
     }
-    .container {
-      max-width: 880px;
+
+    .page {
+      max-width: 900px;
       margin: 0 auto;
       padding: 32px 20px 64px;
     }
-    header {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-    .badge {
-      display: inline-block;
-      padding: 4px 10px;
-      border: 1px solid #1f2937;
-      background: rgba(34, 211, 238, 0.08);
-      color: var(--accent);
-      border-radius: 999px;
-      font-size: 12px;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    h1 { font-size: clamp(1.6rem, 3.2vw, 2.2rem); margin: 0; }
-    .subtitle { color: var(--muted); margin-top: -4px; }
 
-    .panel {
-      background: radial-gradient(1200px 600px at 10% -20%, rgba(34,211,238,0.06), transparent 40%),
-                  radial-gradient(1200px 600px at 90% -10%, rgba(99,102,241,0.06), transparent 40%),
-                  var(--panel);
-      border: 1px solid #1f2937;
-      border-radius: 16px;
-      padding: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
-    }
-    section { margin: 18px 0; }
-    section h2 { font-size: 1.12rem; margin: 0 0 10px; color: #e0e7ff; }
+    header { text-align: center; margin-bottom: 18px; }
+    h1, h2 { font-family: var(--font-heading); color: var(--headline); margin: 0; }
+    h1 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); letter-spacing: 0.2px; }
+    .sub { color: var(--muted); margin-top: 6px; font-size: 1rem; }
+
+    .rule { border: 0; height: 1px; background: var(--rule); margin: 18px 0 22px; }
+
+    section { margin: 16px 0 20px; }
+    section h2 { font-size: 1.2rem; margin-bottom: 10px; }
 
     .card {
       background: var(--card);
-      border: 1px solid #1f2937;
-      border-radius: 14px;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
       padding: 14px 16px;
-      margin: 10px 0;
     }
-    ol, ul { padding-left: 20px; margin: 8px 0; }
+
+    p { margin: 8px 0; }
+    ul, ol { margin: 8px 0 8px 20px; }
     li { margin: 6px 0; }
 
-    .footer {
-      margin-top: 26px;
-      display: flex; gap: 12px; flex-wrap: wrap;
-      align-items: center;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-    .btn {
-      appearance: none;
-      border: 1px solid #334155;
-      background: linear-gradient(180deg, #1f2937, #111827);
-      color: var(--text);
-      padding: 10px 14px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: transform .08s ease, filter .2s ease, border-color .2s ease;
-    }
-    .btn:hover { filter: brightness(1.08); border-color: #475569; }
-    .btn:active { transform: translateY(1px) scale(.995); }
-    .small { font-size: .9rem; color: var(--muted); }
-    .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; clip: rect(0,0,0,0); overflow: hidden; }
+    footer { color: var(--muted); font-size: .95rem; margin-top: 26px; text-align: center; }
 
-    /* Responsive tweaks */
-    @media (max-width: 480px) {
-      .container { padding: 22px 14px 48px; }
-      .panel { padding: 14px; }
+    .print { display: inline-block; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 10px; background: #fff; cursor: pointer; }
+
+    @media print {
+      .print { display: none; }
+      .page { padding: 0 0 12mm; }
+      header { margin-top: 8mm; }
+      .rule { margin: 6mm 0; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="page">
     <header>
-      <span class="badge">Documento informativo</span>
-      <h1 id="title">Crema de Cannavi Achilata</h1>
-      <p class="subtitle" id="subtitle">Instrucciones de uso, funciones, recomendaciones y beneficios</p>
-      <div class="footer">
-        <button class="btn" id="btnImprimir" type="button">Imprimir</button>
-        <span class="small">Esta página genera el contenido a partir del DOM con JavaScript.</span>
-      </div>
+      <h1>Ungüento de Cannavi Achilata</h1>
+      <div class="sub">Instrucciones, beneficios y recomendaciones</div>
+      <hr class="rule" />
+      <button class="print" onclick="window.print()" aria-label="Imprimir">Imprimir</button>
     </header>
 
-    <main class="panel" id="content" aria-live="polite">
-      <!-- El contenido se inyecta dinámicamente abajo -->
+    <main id="contenido" aria-live="polite">
+      <section>
+        <div class="card">
+          <p>
+            El Ungüento de Cannavi de la marca Achilata es un producto de uso tópico formulado con
+            extractos naturales de <em>Cannabis sativa</em>, especialmente Cannabidiol (CBD). Este componente se ha
+            destacado por sus propiedades calmantes, antiinflamatorias y regeneradoras, lo que la convierte en una
+            excelente opción para el cuidado corporal y el bienestar general.
+          </p>
+          <p>
+            La crema de Cannavi cumple una función calmante y reparadora sobre la piel. Sus principales beneficios incluyen la
+            reducción de molestias musculares y articulares, la hidratación profunda y la protección de la barrera cutánea.
+            Gracias a sus propiedades antiinflamatorias, ayuda a aliviar dolores localizados, tensiones o contracturas leves,
+            brindando una sensación de alivio y bienestar. Además, contribuye a suavizar la piel seca o irritada, favoreciendo su
+            recuperación natural.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2>¿Para qué sirve el ungüento?</h2>
+        <ul>
+          <li>Propiedades antiinflamatorias: ayuda a reducir la inflamación en músculos y articulaciones.</li>
+          <li>Efecto analgésico: alivia molestias locales sin generar efectos psicoactivos.</li>
+          <li>Hidratación y regeneración: aporta ácidos grasos esenciales que nutren la piel.</li>
+          <li>Cuidado cosmético: mejora la textura, suavidad y elasticidad de la piel.</li>
+          <li>Protección de la piel frente a agentes externos e irritaciones leves.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Modo de uso</h2>
+        <ol>
+          <li>Aplique una pequeña cantidad de la crema sobre la zona deseada (piel limpia y seca).</li>
+          <li>Realice un suave masaje circular hasta su completa absorción.</li>
+          <li>Utilice una o dos veces al día, según necesidad o indicación del fabricante.</li>
+          <li>Evite el contacto con los ojos, mucosas o heridas abiertas.</li>
+          <li>En caso de irritación, suspenda su uso y consulte con un profesional de salud.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h2>Funciones principales</h2>
+        <ul>
+          <li>Propiedades antiinflamatorias.</li>
+          <li>Efecto analgésico local.</li>
+          <li>Hidratación y regeneración cutánea.</li>
+          <li>Cuidado cosmético (textura, suavidad y elasticidad de la piel).</li>
+          <li>Protección frente a agentes externos.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Recomendaciones y precauciones</h2>
+        <ul>
+          <li>Mantener fuera del alcance de los niños y en un lugar fresco y seco.</li>
+          <li>Uso exclusivamente externo. No sustituye tratamientos médicos.</li>
+          <li>Verificar la composición en caso de alergias conocidas.</li>
+          <li>Personas embarazadas, en lactancia o bajo tratamiento médico: consultar al médico antes de usarla.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Conclusión</h2>
+        <p>
+          La crema de Cannavi Achilata representa una alternativa natural para el alivio de molestias musculares y el cuidado de la piel.
+          Su fórmula con extracto de cannabis contribuye al bienestar físico, proporcionando hidratación, frescura y confort sin efectos
+          secundarios ni componentes psicoactivos. Su uso regular puede mejorar la apariencia y salud general de la piel.
+        </p>
+      </section>
     </main>
 
-    <footer class="footer" style="margin-top:24px">
-      <span class="small">Fuente: Informe proporcionado por el usuario. Uso exclusivamente informativo.</span>
-    </footer>
+    <footer>
+      <hr class="rule" />
+      <p>ACHILATA · Documento informativo</p>
+    </footer>   
   </div>
 
   <script>
-    // Datos estructurados extraídos del PDF
-    const data = {
-      producto: "Crema de Cannavi Achilata",
-      descripcion: "Producto de uso tópico con extractos naturales de Cannabis sativa (CBD), con propiedades calmantes, antiinflamatorias y regeneradoras.",
-      paraQueSirve: [
-        "Ayuda a reducir molestias musculares y articulares.",
-        "Favorece la hidratación profunda y la protección de la barrera cutánea.",
-        "Alivia dolores localizados, tensiones o contracturas leves.",
-        "Contribuye a suavizar la piel seca o irritada y favorece su recuperación natural."
-      ],
-      modoDeUso: [
-        "Aplique una pequeña cantidad sobre la zona deseada (piel limpia y seca).",
-        "Realice un suave masaje circular hasta su completa absorción.",
-        "Utilice una o dos veces al día, según necesidad o indicación del fabricante.",
-        "Evite el contacto con los ojos, mucosas o heridas abiertas.",
-        "En caso de irritación, suspenda su uso y consulte con un profesional de salud."
-      ],
-      funcionesPrincipales: [
-        "Propiedades antiinflamatorias: ayuda a reducir la inflamación en músculos y articulaciones.",
-        "Efecto analgésico: alivia molestias locales sin generar efectos psicoactivos.",
-        "Hidratación y regeneración: aporta ácidos grasos esenciales que nutren la piel.",
-        "Cuidado cosmético: mejora la textura, suavidad y elasticidad de la piel.",
-        "Protección de la piel frente a agentes externos e irritaciones leves."
-      ],
-      recomendaciones: [
-        "Mantener fuera del alcance de los niños y en un lugar fresco y seco.",
-        "Uso exclusivamente externo. No sustituye tratamientos médicos.",
-        "Verificar la composición en caso de alergias conocidas.",
-        "Personas embarazadas, en lactancia o bajo tratamiento médico: consultar al médico antes de usarla."
-      ],
-      conclusion: "La crema de Cannavi Achilata representa una alternativa natural para el alivio de molestias musculares y el cuidado de la piel. Su fórmula con extracto de cannabis contribuye al bienestar físico, proporcionando hidratación, frescura y confort sin efectos psicoactivos. Su uso regular puede mejorar la apariencia y salud general de la piel."
-    };
-
-    // Utilidades para crear nodos
-    const el = (tag, attrs = {}, children = []) => {
-      const node = document.createElement(tag);
-      for (const [k,v] of Object.entries(attrs)) {
-        if (k === 'class') node.className = v;
-        else if (k === 'html') node.innerHTML = v;
-        else node.setAttribute(k, v);
-      }
-      for (const child of [].concat(children)) {
-        if (child == null) continue;
-        node.append(child.nodeType ? child : document.createTextNode(child));
-      }
-      return node;
-    };
-
-    const section = (titulo, body) => el('section', {}, [
-      el('h2', {}, [titulo]),
-      body
-    ]);
-
-    const list = (items, ordered=false) => {
-      const listEl = el(ordered ? 'ol' : 'ul');
-      items.forEach(t => listEl.append(el('li', {}, [t])));
-      return listEl;
-    };
-
-    // Render en el DOM
-    const root = document.getElementById('content');
-
-    root.append(
-      el('div', { class: 'card' }, [ data.descripcion ])
-    );
-
-    root.append(
-      section('¿Para qué sirve la crema de Cannavi?', el('div', { class: 'card' }, [ list(data.paraQueSirve) ]))
-    );
-
-    root.append(
-      section('Modo de uso', el('div', { class: 'card' }, [ list(data.modoDeUso, true) ]))
-    );
-
-    root.append(
-      section('Funciones principales', el('div', { class: 'card' }, [ list(data.funcionesPrincipales) ]))
-    );
-
-    root.append(
-      section('Recomendaciones y precauciones', el('div', { class: 'card' }, [ list(data.recomendaciones) ]))
-    );
-
-    root.append(
-      section('Conclusión', el('div', { class: 'card' }, [ data.conclusion ]))
-    );
-
-    // Interacciones
-    document.getElementById('btnImprimir').addEventListener('click', () => window.print());
+    // Si más adelante nos indicás el nombre real de la fuente del PDF o adjuntás el archivo,
+    // activamos el bloque @font-face de arriba y quedará aplicado a todo el sitio.
   </script>
 </body>
 </html>
