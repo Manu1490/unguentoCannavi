@@ -16,15 +16,14 @@
   -->
   <style>
     :root {
-      /* === VARIABLES DE PALETA – AJUSTADAS PARA PARECERSE AL PDF ===
-         Si necesitás coincidencia 1:1, reemplazá con los HEX exactos del PDF. */
-      --bg: #fbfcfb;            /* Fondo principal del PDF (tono claro) */
-      --panel: #ffffff;         /* Paneles / tarjetas */
-      --rule: #d8e0d9;          /* Líneas separadoras suaves */
-      --headline: #14532d;      /* Verde profundo para títulos */
-      --accent: #0f766e;        /* Acento verdoso (subtítulos / bullets) */
-      --text: #1b1f24;          /* Texto principal */
-      --muted: #495057;         /* Texto secundario */
+      /* === VARIABLES DE PALETA – AJUSTADAS PARA PARECERSE AL PDF === */
+      --bg: #fbfcfb;
+      --panel: #ffffff;
+      --rule: #d8e0d9;
+      --headline: #14532d;
+      --accent: #0f766e;
+      --text: #1b1f24;
+      --muted: #495057;
 
       --radius: 14px;
       --shadow: 0 8px 28px rgba(0,0,0,.06);
@@ -111,14 +110,38 @@
       margin-top: 24px; color: var(--muted); text-align: center; font-size: .95rem;
     }
 
-    .print { display: inline-block; padding: 8px 12px; border: 1px solid var(--rule); border-radius: 10px; background: #fff; cursor: pointer; }
+    /* === Botones en cabecera === */
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .button {
+      display:inline-block;
+      padding: 8px 12px;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      background: #fff;
+      text-decoration: none;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform .02s ease, box-shadow .2s ease;
+      box-shadow: 0 2px 8px rgba(0,0,0,.05);
+    }
+    .button:hover { transform: translateY(-1px); box-shadow: 0 4px 14px rgba(0,0,0,.08); }
+    .button--primary {
+      border-color: rgba(20,83,45,.25);
+      background: rgba(20,83,45,.06);
+      color: var(--headline);
+    }
 
     @media (min-width: 820px) {
       .grid.two { grid-template-columns: 1fr 1fr; }
     }
 
     @media print {
-      .print { display: none; }
+      .actions { display: none; } /* no mostrar botones en impresión */
       .page { padding: 0 0 10mm; }
       .hero { box-shadow: none; }
     }
@@ -132,19 +155,24 @@
       <h1>Ungüento de Cannavi Achilata</h1>
       <p class="sub">Ungüento de Cannavi y sus beneficios</p>
       <hr class="rule" />
-      <a href="Ungüento de Cannavi Achilata.pdf" download style="
-        display:inline-block;
-        padding:10px 18px;
-        background:#4CAF50;
-        color:white;
-        text-decoration:none;
-        border-radius:6px;
-        font-weight:bold;
-        margin-top: 20px;
-      ">
-        Descargar PDF
-      </a>
-      <button class="print" onclick="window.print()" aria-label="Imprimir">Imprimir</button>
+
+      <!-- ✅ Botones de acción -->
+      <div class="actions" role="group" aria-label="Acciones del documento">
+        <button class="button" onclick="window.print()" aria-label="Imprimir">Imprimir</button>
+
+        <!-- ✅ Botón/Enlace de descarga del PDF
+             Coloca el PDF en la MISMA carpeta que este HTML
+             Nombre esperado: Ungüento de Cannavi Achilata.pdf
+             Si tu servidor no soporta tildes/espacios, renómbralo y cambia el href. -->
+        <a
+          class="button button--primary"
+          href="./Unguento_de_Cannavi_Achilata.pdf"
+          download
+          aria-label="Descargar PDF de instrucciones"
+        >
+          Descargar PDF
+        </a>
+      </div>
     </header>
 
     <main class="grid" aria-live="polite">
@@ -228,5 +256,4 @@
     // Si agregás la fuente real en fonts/ y activás @font-face, la página usará la MISMA fuente que el PDF.
     // Para igualar el fondo 1:1, cambia --bg por el HEX exacto del PDF.
   </script>
-</body>
-</html>
+</body
